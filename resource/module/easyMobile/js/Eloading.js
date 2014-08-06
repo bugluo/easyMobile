@@ -5,7 +5,7 @@ Github: https://github.com/vadimsva/waitMe
 user:bugLuo 6185763@qq.com
 */
 !function(factory) {
-    //factory是一个函数，下面的koExports就是他的参数
+    //factory是一个函数，下面的EExports就是他的参数
     // Support three module loading scenarios
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
         // [1] CommonJS/Node.js
@@ -21,7 +21,7 @@ user:bugLuo 6185763@qq.com
         define(['exports'], factory);
     } else {
         // [3] No module loader (plain <script> tag) - put directly in global namespace
-        factory(window['E'] = {});
+	    window['E']?factory(window['E']):factory(window['E']={});
     }
 }(function(EExports){
 

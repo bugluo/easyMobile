@@ -15,7 +15,7 @@
         define(['exports'], factory);
     } else {
         // [3] No module loader (plain <script> tag) - put directly in global namespace
-        factory(window['E'] = {});
+        window['E']?factory(window['E']):factory(window['E']={});
     }
 }(function(EExports){
 
