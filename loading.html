@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
 	<meta charset="UTF-8">
-	<title>Base Demo</title>
+	<title>loading Demo</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="format-detection" content="telephone=no">
@@ -38,8 +38,10 @@
 	<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png"> -->
 	<!-- <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/startup.png"> 启动画面，用mediaquery加载不同画面  -->
 	<link rel="stylesheet" href="resource/css/base.combo.css"/>
+	<style>body{background: #333}</style>
 </head>
 <body>
+
 </body>
 <!-- 为什么使用jquery：因为zepto在低端手机有一些坑，jquery2.0大版本在window mobile6.5也有一些坑。如果不想兼容，可以随时换zepto。使用require，因为够简单 -->
 <script type="text/javascript" src="resource/module/jquery/jquery_require.js"></script>
@@ -47,5 +49,5 @@
 require.config({'baseUrl' : 'resource/','urlArgs' : "r=" + (new Date()).getTime()});
 </script>
 <script type="text/javascript" src="resource/js/common.js"></script>
-<script type="text/javascript" src="resource/js/index.js"></script>
+<script type="text/javascript" src="resource/js/loading.js"></script>
 </html>

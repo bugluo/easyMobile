@@ -23,6 +23,7 @@
 /* Set <html> and <body> to inherit the height of the viewport */
 html,
 body {
+  height:100%;
   max-height: 100%;
 }
 /**

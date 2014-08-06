@@ -1,7 +1,9 @@
 define([
-	'module/easyMobile/js/Ebase'
-], function(base) {
+	'module/easyMobile/js/Ebase',
+	'module/easyMobile/js/Eloading'
+], function(base,loading) {
 	return {
-		test:base.test
+		test:base.test,
+		loading:loading.loading
 	}
 });
