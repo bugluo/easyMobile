@@ -32,7 +32,7 @@ user:bugLuo 6185763@qq.com
     E.loading = function(method){
 	    var elem,
 		elemClass = 'Eloading',
-		Eloading_text,
+		EloadingText,
 		effectObj,
 		effectElemCount,
 		createSubElem = false,
@@ -153,14 +153,14 @@ user:bugLuo 6185763@qq.com
 					}
 					
 					if (_options.text) {
-						Eloading_text = $('<div class="' + elemClass + '-text" style="color:' + _options.color + '">' + _options.text + '</div>');
+						EloadingText = $('<div class="' + elemClass + '-text" style="color:' + _options.color + '">' + _options.text + '</div>');
 					}
 					
 					if (elem.find('> .' + elemClass)) {
 						elem.find('> .' + elemClass).remove();
 					}
 					EloadingDivObj = $('<div class="' + elemClass + '-content"></div>');
-					EloadingDivObj.append(effectObj, Eloading_text);
+					EloadingDivObj.append(effectObj, EloadingText);
 					EloadingObj.append(EloadingDivObj);
 					if (elem[0].tagName == 'HTML') {
 						elem = $('body');
@@ -181,6 +181,9 @@ user:bugLuo 6185763@qq.com
 		};
 		
 		function EloadingClose() {
+			if(!elem){
+				elem = $(document.body);
+			}
 			elem.removeClass(elemClass + '-container');
 			elem.find('.' + elemClass).remove();
 		}
