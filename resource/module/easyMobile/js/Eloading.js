@@ -167,7 +167,7 @@ user:bugLuo 6185763@qq.com
 					}
 					elem.addClass(elemClass + '-container').append(EloadingObj);
 					elem.find('> .' + elemClass).css({background: _options.bg});
-					elem.find('.' + elemClass + '-content').css({marginTop: - elem.find('.' + elemClass + '-content').outerHeight() / 2 + 'px'});
+			//		elem.find('.' + elemClass + '-content').css({marginTop: - elem.find('.' + elemClass + '-content').outerHeight() / 2 + 'px'});
 
 				}
 				
