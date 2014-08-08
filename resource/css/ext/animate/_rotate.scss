@@ -2,7 +2,32 @@
 //-----------------------------------------------------	
 // rotate scss
 //-----------------------------------------------------
+// rotateIn
 
+@mixin animate-rotatePlane () {
+  @include keyframes(rotatePlane){
+    0% {
+    @include transform(perspective(120px));
+    }
+    50% {
+        @include transform(perspective(120px) rotateY(180deg));
+    }
+    100% {
+        @include transform(perspective(120px) rotateY(180deg)  rotateX(180deg));
+    }
+  }
+}
+
+@mixin animate-rotate () {
+  @include keyframes(rotate){
+    0% {
+      @include rotate(0);
+    }
+    100% {
+      @include rotate(360deg);
+    }
+  }
+}
 
 // rotateIn
 @mixin animate-rotateIn () {

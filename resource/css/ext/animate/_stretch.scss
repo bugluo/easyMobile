@@ -1,0 +1,17 @@
+@charset "UTF-8";
+//-----------------------------------------------------	
+// stretch scss
+//-----------------------------------------------------
+
+
+// stretch
+@mixin animate-stretch () {
+	@include keyframes(stretch){
+		0%, 40%, 100% {
+			@include transform(scaleY(0.4));
+		}
+		20% {
+			@include transform(scaleY(1));
+		}
+	}
+}

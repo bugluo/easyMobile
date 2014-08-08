@@ -5,13 +5,12 @@ Github: https://github.com/vadimsva/Eloading
 user and recode:bugLuo 6185763@qq.com
 */
 @import "../../../css/function";
-@import "../../../css/ext/animate/bounce";
-//base bounce
-@include animate-bounce;
 
+//base wrap
 $animateWidth:20px;
 $animateHeight:20px;
-$animateSpeed:-0.16s;
+$animateSpeed:1.4s;
+
 body.Eloading-container {
 	position:fixed;
 	width:100%;
@@ -40,7 +39,6 @@ body.Eloading-container {
 		.Eloading-progress{
 			position:relative;
 			margin:auto;
-			width:$animateWidth;
 			div{
 				@include animation-fill-mode(both);
 			}
@@ -51,23 +49,83 @@ body.Eloading-container {
 			margin:20px 0 0;
 		}
 	}
-
 }
 
 /* bounce */
-.Eloading-container{
-	.Eloading-progress.bounce{
-		div{
-			width:$animateWidth;
-			height:$animateHeight;
-			@include border-radius(50%);
-			@include animation(bounce 1.4s infinite ease-in-out);
-		}
-		.Eloading-progress_elem1 {
-			@include animation-delay($animateSpeed*2);
-		}
-		.Eloading-progress_elem2 {
-			@include animation-delay($animateSpeed);
-		}
+@import "../../../css/ext/animate/bounce";
+@include animate-bounce;
+$bounceInterval:-0.16s;
+.Eloading-progress.bounce{
+	width:$animateWidth;
+	div{
+		width:$animateWidth;
+		height:$animateHeight;
+		@include border-radius(50%);
+		@include animation(bounce $animateSpeed infinite ease-in-out);
+	}
+	.Eloading-progress_elem1 {
+		@include animation-delay($bounceInterval*2);
+	}
+	.Eloading-progress_elem2 {
+		@include animation-delay($bounceInterval);
+	}
+}
+
+/* rotateplane */
+@import "../../../css/ext/animate/rotate";
+@include animate-rotatePlane;
+.Eloading-progress.rotateplane{
+	width:$animateWidth;
+	div{
+		width:$animateWidth;
+		height:$animateHeight;
+		@include animation(rotatePlane $animateSpeed infinite ease-in-out);
+	}
+}
+
+/* stretch */
+@import "../../../css/ext/animate/stretch";
+@include animate-stretch;
+$stretchInterval:-1.1s;
+.Eloading-progress.stretch{
+	width:$animateWidth*3;
+	div{
+		width:$animateWidth/3;
+		height:$animateHeight*3;
+		margin:1px;
+		@include inline-block;
+		@include animation(stretch $animateSpeed infinite ease-in-out);
+	}
+	.Eloading-progress_elem2{
+		@include animation-delay($stretchInterval);
+	}
+	.Eloading-progress_elem3{
+		@include animation-delay($stretchInterval+0.1);
+	}
+	.Eloading-progress_elem4{
+		@include animation-delay($stretchInterval+0.2);
+	}
+	.Eloading-progress_elem5{
+		@include animation-delay($stretchInterval+0.3);
+	}
+}
+
+// orbit
+@import "../../../css/ext/animate/bounce";
+@include animate-rotate;
+@import "../../../css/ext/animate/rotate";
+@include animate-rotatePlane;
+.Eloading-progress.orbit{
+	width:$animateWidth*2;
+	height:$animateHeight*2;
+	@include animation(rotate $animateSpeed infinite ease-in-out);
+	div{
+		width:$animateWidth;
+		height:$animateHeight;
+		@include border-radius(50%);
+		@include animation(bounce $animateSpeed infinite ease-in-out);
+	}
+	.Eloading-progress_elem2{
+		@include animation-delay(-$animateSpeed/2);
 	}
 }
