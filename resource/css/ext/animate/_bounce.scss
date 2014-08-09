@@ -2,6 +2,7 @@
 //-----------------------------------------------------	
 // bounce scss
 //-----------------------------------------------------
+
 //base bounce
 @mixin animate-bounce () {
   @include keyframes(bounce){

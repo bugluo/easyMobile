@@ -1,7 +1,7 @@
 require([
     'module/easyMobile/js/Ecombo_require'
 ], function(E) {
-	var i = 3;
+	var i = 10;
 	var effects = ['bounce','rotateplane','stretch','orbit','roundBounce','win8','win8_linear','ios','facebook','rotation','timer','none'];
 	E.loading({
 		effect : effects[i],

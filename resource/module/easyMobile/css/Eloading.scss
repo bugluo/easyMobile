@@ -9,7 +9,8 @@ user and recode:bugLuo 6185763@qq.com
 //base wrap
 $animateWidth:20px;
 $animateHeight:20px;
-$animateSpeed:1.4s;
+$animateSpeed:1.2s;
+$animateColor:black;
 
 body.Eloading-container {
 	position:fixed;
@@ -127,5 +128,123 @@ $stretchInterval:-1.1s;
 	}
 	.Eloading-progress_elem2{
 		@include animation-delay(-$animateSpeed/2);
+	}
+}
+
+/* roundBounce */
+@import "../../../css/ext/animate/bounce";
+@include animate-bounce;
+@import "../../../css/ext/animate/rotate";
+@include animate-rotate;
+$stretchInterval:-1.4s;
+.Eloading-progress.roundBounce{
+	width:$animateWidth*2;
+	height:$animateHeight*2;
+	@include animation(rotate $animateSpeed infinite ease-in-out);
+	div{
+		width:20%;
+		height:20%;
+		position:absolute;
+		@include border-radius(50%);
+		@include animation(bounce $animateSpeed infinite ease-in-out);
+	}
+	.Eloading-progress_elem1{
+		top:0;
+		left:0;
+	}
+	.Eloading-progress_elem2{
+		top:0;
+		right:0;
+		@include animation-delay($stretchInterval+0.2s);
+	}
+	.Eloading-progress_elem3{
+		bottom:0;
+		right:0;
+		@include animation-delay($stretchInterval+0.6s);
+	}
+	.Eloading-progress_elem4{
+		bottom:0;
+		left:0;
+		@include animation-delay($stretchInterval+0.9s);
+	}
+	.Eloading-progress_elem5{
+		top:-9%;
+		left:50%;
+		margin-top:-10%;
+		margin-left:-10%;
+
+		@include animation-delay($stretchInterval+0.9s);
+	}
+	.Eloading-progress_elem6{
+		top:50%;
+		right:-9%;
+		margin-top:-10%;
+		margin-right:-10%;
+		@include animation-delay($stretchInterval+0.4s);
+	}
+	.Eloading-progress_elem7{
+		bottom:-9%;
+		left:50%;
+		margin-bottom:-10%;
+		margin-left:-10%;
+		@include animation-delay($stretchInterval+0.7s);
+	}
+	.Eloading-progress_elem8{
+		top:50%;
+		left:-9%;
+		margin-top:-10%;
+		margin-left:-10%;
+		@include animation-delay($stretchInterval+1s);
+	}
+	.Eloading-progress_elem9{
+		top:0;
+		right:0;
+		@include animation-delay($stretchInterval+0.2s);
+	}
+	.Eloading-progress_elem10{
+		bottom:0;
+		right:0;
+		@include animation-delay($stretchInterval+0.5s);
+	}
+	.Eloading-progress_elem11{
+		bottom:0;
+		left:0;
+		@include animation-delay($stretchInterval+0.8s);
+	}
+	.Eloading-progress_elem12{
+		top:0;
+		left:0;
+		@include animation-delay($stretchInterval+1.1s);
+	}
+}
+
+
+/*time*/
+@import "../../../css/ext/animate/rotate";
+@include animate-rotate;
+.Eloading-progress.timer{
+	width:$animateWidth*2;
+	height:$animateHeight*2;
+	border:3px solid $animateColor;
+	@include border-radius(50%);
+	@include box-sizing(border-box);
+	position:relative;
+	text-indent:-9999px;
+	.Eloading-progress_elem1{
+		border-radius:2px;
+		position:absolute;
+		width:4px;
+		height:48%;
+		left:50%;
+		top:50%;
+		margin-left:-2px;
+		margin-top:-2px;
+		@include animation(rotate 1250ms infinite linear);
+		@include transform-origin(2px 2px);
+	}
+	.Eloading-progress_elem2{	
+		@extend .Eloading-progress_elem1;
+		@include animation(rotate 15000ms infinite linear);
+		height:40%;
 	}
 }
