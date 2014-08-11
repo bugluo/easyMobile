@@ -55,7 +55,8 @@ user:bugLuo 6185763@qq.com
 					sizeH: ''
 				};
 				_options = $.extend(_defaults, method);
-				
+				_options.sizeW = isNaN(_options.sizeW)?parseInt(_options.sizeW.replace('px','')):_options.sizeW;
+				_options.sizeH = isNaN(_options.sizeH)?parseInt(_options.sizeH.replace('px','')):_options.sizeH;
 				_init();
 				function _init() {
 					if($('.'+elemClass).length>0){
@@ -74,60 +75,66 @@ user:bugLuo 6185763@qq.com
 						case 'bounce':
 							effectElemCount = 3;
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH + 'px';
+							_options.sizeH = _options.sizeH * effectElemCount;
 						break;
 						case 'rotateplane':
 							effectElemCount = 1;
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 						break;
 						case 'stretch':
 							effectElemCount = 5;
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
+							_options.sizeW = _options.sizeW * 5 + 10;
 						break;
 						case 'orbit':
 							effectElemCount = 2;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
-							elemSize = '';
+							containerSize = '';
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
+							_options.sizeW = _options.sizeW * effectElemCount;
+							_options.sizeH = _options.sizeH * effectElemCount;
 						break;
 						case 'roundBounce':
 							effectElemCount = 12;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 							elemSize = '';
 						break;
 						case 'win8':
 							effectElemCount = 5;
 							createSubElem = true;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 						break;
-						case 'win8_linear':
+						case 'win8-linear':
 							effectElemCount = 5;
 							createSubElem = true;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW +'px' + ';height:' + _options.sizeH +'px';
 							elemSize = '';
 						break;
 						case 'ios':
 							effectElemCount = 12;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 							elemSize = '';
 						break;
 						case 'facebook':
 							effectElemCount = 3;
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
+							_options.sizeW = _options.sizeW * effectElemCount;
+							_options.sizeH = _options.sizeH * effectElemCount;
 						break;
 						case 'rotation':
 							effectElemCount = 1;
 							specificAttr = 'border-color';
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 						break;
 						case 'timer':
 							effectElemCount = 2;
 							addStyle = 'border-color:' + _options.color;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 							elemSize = '';
 						break;
 					}
@@ -149,7 +156,13 @@ user:bugLuo 6185763@qq.com
 								effectElemHTML += '<div class="' + elemClass + '-progress_elem' + i + '" style="' + specificAttr + ':' + _options.color +';' + elemSize + '"></div>';
 							}
 						}
-						effectObj = $('<div class="' + elemClass + '-progress ' + _options.effect + '" style="' + containerSize + addStyle + '">' + effectElemHTML + '</div>');
+						effectObj = $('<div class="' + elemClass + '-progress ' + _options.effect + '" style="' + containerSize + addStyle + '">' + effectElemHTML + '</div>')
+						if(_options.sizeW){
+							effectObj.css(width,_options.sizeW);
+						}
+						if(_options.sizeH){
+							effectObj.css(height,_options.sizeH);
+						}
 					}
 					
 					if (_options.text) {
@@ -162,13 +175,12 @@ user:bugLuo 6185763@qq.com
 					EloadingDivObj = $('<div class="' + elemClass + '-content"></div>');
 					EloadingDivObj.append(effectObj, EloadingText);
 					EloadingObj.append(EloadingDivObj);
+
 					if (elem[0].tagName == 'HTML') {
 						elem = $('body');
 					}
 					elem.addClass(elemClass + '-container').append(EloadingObj);
 					elem.find('> .' + elemClass).css({background: _options.bg});
-			//		elem.find('.' + elemClass + '-content').css({marginTop: - elem.find('.' + elemClass + '-content').outerHeight() / 2 + 'px'});
-
 				}
 				
 			},

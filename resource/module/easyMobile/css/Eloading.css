@@ -1,10 +1,11 @@
+@charset "GBK";
 /*
 Eloading - 1.02 [10.06.14]
 first Author: vadimsva
 Github: https://github.com/vadimsva/Eloading
 user and recode:bugLuo 6185763@qq.com
 */
-.Eloading-progress.stretch div {
+.Eloading-progress.stretch > div {
   display: inline-block; }
 
 body.Eloading-container {
@@ -36,7 +37,7 @@ body.Eloading-container {
   .Eloading-container .Eloading .Eloading-progress {
     position: relative;
     margin: auto; }
-    .Eloading-container .Eloading .Eloading-progress div {
+    .Eloading-container .Eloading .Eloading-progress > div {
       -webkit-animation-fill-mode: both;
       animation-fill-mode: both; }
   .Eloading-container .Eloading .Eloading-text {
@@ -45,6 +46,7 @@ body.Eloading-container {
     margin: 20px 0 0; }
 
 /* bounce */
+/* bounce、bounceIn、bounceInDown、bounceInLeft、bounceInRight、bounceInUp、bounceOut、bounceOutDown、bounceOutLeft、bounceOutRight、bounceOutUp */
 @-webkit-keyframes bounce {
   0%, 80%, 100% {
     -webkit-transform: scale(0); }
@@ -59,7 +61,7 @@ body.Eloading-container {
     transform: scale(1); } }
 .Eloading-progress.bounce {
   width: 20px; }
-  .Eloading-progress.bounce div {
+  .Eloading-progress.bounce > div {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -73,6 +75,7 @@ body.Eloading-container {
     animation-delay: -0.16s; }
 
 /* rotateplane */
+/*rotate、rotateIn、rotateInDownLeft、rotateInDownRight、rotateInUpLeft、rotateInUpRight、rotateOut、rotateOutDownLeft、rotateOutDownRight、rotateOutUpLeft、rotateOutUpRight*/
 @-webkit-keyframes rotatePlane {
   0% {
     -webkit-transform: perspective(120px); }
@@ -93,7 +96,7 @@ body.Eloading-container {
     transform: perspective(120px) rotateY(180deg) rotateX(180deg); } }
 .Eloading-progress.rotateplane {
   width: 20px; }
-  .Eloading-progress.rotateplane div {
+  .Eloading-progress.rotateplane > div {
     width: 20px;
     height: 20px;
     -webkit-animation: rotatePlane 1.2s infinite ease-in-out;
@@ -114,7 +117,7 @@ body.Eloading-container {
     transform: scaleY(1); } }
 .Eloading-progress.stretch {
   width: 60px; }
-  .Eloading-progress.stretch div {
+  .Eloading-progress.stretch > div {
     width: 6.66667px;
     height: 60px;
     margin: 1px;
@@ -168,7 +171,7 @@ body.Eloading-container {
   height: 40px;
   -webkit-animation: rotate 1.2s infinite ease-in-out;
   animation: rotate 1.2s infinite ease-in-out; }
-  .Eloading-progress.orbit div {
+  .Eloading-progress.orbit > div {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -208,7 +211,7 @@ body.Eloading-container {
   height: 40px;
   -webkit-animation: rotate 1.2s infinite ease-in-out;
   animation: rotate 1.2s infinite ease-in-out; }
-  .Eloading-progress.roundBounce div {
+  .Eloading-progress.roundBounce > div {
     width: 20%;
     height: 20%;
     position: absolute;
@@ -281,6 +284,323 @@ body.Eloading-container {
     left: 0;
     -webkit-animation-delay: -0.3s;
     animation-delay: -0.3s; }
+
+@-webkit-keyframes win8 {
+  0% {
+    opacity: 1;
+    -webkit-transform: rotate(225deg);
+    -webkit-animation-timing-function: ease-out; }
+
+  7% {
+    -webkit-transform: rotate(345deg);
+    -webkit-animation-timing-function: linear; }
+
+  30% {
+    -webkit-transform: rotate(455deg);
+    -webkit-animation-timing-function: ease-in-out; }
+
+  39% {
+    -webkit-transform: rotate(690deg);
+    -webkit-animation-timing-function: linear; }
+
+  70% {
+    opacity: 1;
+    -webkit-transform: rotate(815deg);
+    -webkit-animation-timing-function: ease-out; }
+
+  75% {
+    -webkit-transform: rotate(945deg);
+    -webkit-animation-timing-function: ease-out; }
+
+  76% {
+    opacity: 0;
+    -webkit-transform: rotate(945deg); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: rotate(945deg); } }
+@keyframes win8 {
+  0% {
+    opacity: 1;
+    transform: rotate(225deg);
+    animation-timing-function: ease-out; }
+
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear; }
+
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out; }
+
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear; }
+
+  70% {
+    opacity: 1;
+    transform: rotate(815deg);
+    animation-timing-function: ease-out; }
+
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out; }
+
+  76% {
+    opacity: 0;
+    transform: rotate(945deg); }
+
+  100% {
+    opacity: 0;
+    transform: rotate(945deg); } }
+.Eloading-progress.win8 {
+  width: 40px; }
+  .Eloading-progress.win8 > div {
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+    -webkit-animation: win8 5.5s infinite;
+    animation: win8 5.5s infinite; }
+    .Eloading-progress.win8 > div > div {
+      width: 15%;
+      height: 15%;
+      border-radius: 50%;
+      position: absolute;
+      margin: -12.5%; }
+  .Eloading-progress.win8 .Eloading-progress_elem2 {
+    -webkit-animation-delay: 0.24s;
+    animation-delay: 0.24s; }
+  .Eloading-progress.win8 .Eloading-progress_elem3 {
+    -webkit-animation-delay: 0.48s;
+    animation-delay: 0.48s; }
+  .Eloading-progress.win8 .Eloading-progress_elem4 {
+    -webkit-animation-delay: 0.72s;
+    animation-delay: 0.72s; }
+  .Eloading-progress.win8 .Eloading-progress_elem5 {
+    -webkit-animation-delay: 0.96s;
+    animation-delay: 0.96s; }
+
+/* win8-linear */
+@-webkit-keyframes win8-linear {
+  0% {
+    -webkit-transform: translateX(0);
+    -webkit-animation-timing-function: ease-out; }
+
+  10% {
+    opacity: 1;
+    -webkit-transform: translateX(33.333%);
+    -webkit-animation-timing-function: linear; }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: translateX(53.333%);
+    -webkit-animation-timing-function: ease-in-out; }
+
+  60% {
+    opacity: 0;
+    -webkit-transform: translateX(86.666%); } }
+@keyframes win8-linear {
+  0% {
+    transform: translateX(0);
+    animation-timing-function: ease-out; }
+
+  10% {
+    opacity: 1;
+    transform: translateX(33.333%);
+    animation-timing-function: linear; }
+
+  50% {
+    opacity: 1;
+    transform: translateX(53.333%);
+    animation-timing-function: ease-in-out; }
+
+  60% {
+    opacity: 0;
+    transform: translateX(86.666%); } }
+.Eloading-progress.win8-linear {
+  width: 150px;
+  height: 6.66667px; }
+  .Eloading-progress.win8-linear > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    -webkit-animation: win8-linear 3s infinite;
+    animation: win8-linear 3s infinite; }
+    .Eloading-progress.win8-linear > div > div {
+      width: 4%;
+      height: 100%;
+      border-radius: 50%; }
+  .Eloading-progress.win8-linear .Eloading-progress_elem2 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s; }
+  .Eloading-progress.win8-linear .Eloading-progress_elem3 {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s; }
+  .Eloading-progress.win8-linear .Eloading-progress_elem4 {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s; }
+  .Eloading-progress.win8-linear .Eloading-progress_elem5 {
+    -webkit-animation-delay: 1.2s;
+    animation-delay: 1.2s; }
+
+/* ios */
+@-webkit-keyframes ios {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0.25; } }
+@keyframes ios {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0.25; } }
+.Eloading-progress.ios {
+  width: 20px;
+  height: 20px; }
+  .Eloading-progress.ios > div {
+    width: 10%;
+    height: 26%;
+    position: absolute;
+    left: 44.5%;
+    top: 37%;
+    opacity: 0;
+    border-radius: 50px;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    -webkit-animation: ios 1.2s linear infinite;
+    animation: ios 1.2s linear infinite; }
+  .Eloading-progress.ios .Eloading-progress_elem1, .Eloading-progress.ios .Eloading-progress.timer .Eloading-progress_elem2, .Eloading-progress.timer .Eloading-progress.ios .Eloading-progress_elem2 {
+    -webkit-transform: rotate(0deg) translate(0, -142%);
+    transform: rotate(0deg) translate(0, -142%);
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s; }
+  .Eloading-progress.ios .Eloading-progress_elem2 {
+    -webkit-transform: rotate(30deg) translate(0, -142%);
+    transform: rotate(30deg) translate(0, -142%);
+    -webkit-animation-delay: -0.9167s;
+    animation-delay: -0.9167s; }
+  .Eloading-progress.ios .Eloading-progress_elem3 {
+    -webkit-transform: rotate(60deg) translate(0, -142%);
+    transform: rotate(60deg) translate(0, -142%);
+    -webkit-animation-delay: -0.833s;
+    animation-delay: -0.833s; }
+  .Eloading-progress.ios .Eloading-progress_elem4 {
+    -webkit-transform: rotate(90deg) translate(0, -142%);
+    transform: rotate(90deg) translate(0, -142%);
+    -webkit-animation-delay: -0.75s;
+    animation-delay: -0.75s; }
+  .Eloading-progress.ios .Eloading-progress_elem5 {
+    -webkit-transform: rotate(120deg) translate(0, -142%);
+    transform: rotate(120deg) translate(0, -142%);
+    -webkit-animation-delay: -0.667s;
+    animation-delay: -0.667s; }
+  .Eloading-progress.ios .Eloading-progress_elem6 {
+    -webkit-transform: rotate(150deg) translate(0, -142%);
+    transform: rotate(150deg) translate(0, -142%);
+    -webkit-animation-delay: -0.5833s;
+    animation-delay: -0.5833s; }
+  .Eloading-progress.ios .Eloading-progress_elem7 {
+    -webkit-transform: rotate(180deg) translate(0, -142%);
+    transform: rotate(180deg) translate(0, -142%);
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s; }
+  .Eloading-progress.ios .Eloading-progress_elem8 {
+    -webkit-transform: rotate(210deg) translate(0, -142%);
+    transform: rotate(210deg) translate(0, -142%);
+    -webkit-animation-delay: -0.41667s;
+    animation-delay: -0.41667s; }
+  .Eloading-progress.ios .Eloading-progress_elem9 {
+    -webkit-transform: rotate(240deg) translate(0, -142%);
+    transform: rotate(240deg) translate(0, -142%);
+    -webkit-animation-delay: -0.333s;
+    animation-delay: -0.333s; }
+  .Eloading-progress.ios .Eloading-progress_elem10 {
+    -webkit-transform: rotate(270deg) translate(0, -142%);
+    transform: rotate(270deg) translate(0, -142%);
+    -webkit-animation-delay: -0.25s;
+    animation-delay: -0.25s; }
+  .Eloading-progress.ios .Eloading-progress_elem11 {
+    -webkit-transform: rotate(300deg) translate(0, -142%);
+    transform: rotate(300deg) translate(0, -142%);
+    -webkit-animation-delay: -0.1667s;
+    animation-delay: -0.1667s; }
+  .Eloading-progress.ios .Eloading-progress_elem12 {
+    -webkit-transform: rotate(330deg) translate(0, -142%);
+    transform: rotate(330deg) translate(0, -142%);
+    -webkit-animation-delay: -0.0833s;
+    animation-delay: -0.0833s; }
+
+/* facebook */
+@-webkit-keyframes facebook {
+  0% {
+    -webkit-transform: scale(1.2);
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: scale(0.7);
+    opacity: 0.1; } }
+@keyframes facebook {
+  0% {
+    transform: scale(1.2);
+    opacity: 1; }
+
+  100% {
+    transform: scale(0.7);
+    opacity: 0.1; } }
+.Eloading-progress.facebook {
+  width: 6.66667px; }
+  .Eloading-progress.facebook > div {
+    margin: auto;
+    width: 6.66667px;
+    height: 25px;
+    opacity: 0.1;
+    -webkit-animation: facebook 1.2s linear infinite;
+    animation: facebook 1.2s linear infinite;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7); }
+  .Eloading-progress.facebook .Eloading-progress_elem1, .Eloading-progress.facebook .Eloading-progress.timer .Eloading-progress_elem2, .Eloading-progress.timer .Eloading-progress.facebook .Eloading-progress_elem2 {
+    -webkit-animation-delay: 0.39s;
+    animation-delay: 0.39s; }
+  .Eloading-progress.facebook .Eloading-progress_elem2 {
+    -webkit-animation-delay: 0.52s;
+    animation-delay: 0.52s; }
+  .Eloading-progress.facebook .Eloading-progress_elem3 {
+    -webkit-animation-delay: 0.65s;
+    animation-delay: 0.65s; }
+
+/* rotation */
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0); }
+
+  100% {
+    -webkit-transform: rotate(360deg); } }
+@keyframes rotate {
+  0% {
+    transform: rotate(0); }
+
+  100% {
+    transform: rotate(360deg); } }
+.Eloading-progress.rotation {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border-width: 6px;
+  border-style: solid;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  -webkit-animation: rotate 1.2s infinite linear;
+  animation: rotate 1.2s infinite linear; }
 
 /*time*/
 @-webkit-keyframes rotate {

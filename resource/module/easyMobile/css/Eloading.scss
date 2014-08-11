@@ -40,7 +40,7 @@ body.Eloading-container {
 		.Eloading-progress{
 			position:relative;
 			margin:auto;
-			div{
+			>div{
 				@include animation-fill-mode(both);
 			}
 		}
@@ -53,12 +53,14 @@ body.Eloading-container {
 }
 
 /* bounce */
+
 @import "../../../css/ext/animate/bounce";
+/* bounce、bounceIn、bounceInDown、bounceInLeft、bounceInRight、bounceInUp、bounceOut、bounceOutDown、bounceOutLeft、bounceOutRight、bounceOutUp */
 @include animate-bounce;
 $bounceInterval:-0.16s;
 .Eloading-progress.bounce{
 	width:$animateWidth;
-	div{
+	>div{
 		width:$animateWidth;
 		height:$animateHeight;
 		@include border-radius(50%);
@@ -74,10 +76,11 @@ $bounceInterval:-0.16s;
 
 /* rotateplane */
 @import "../../../css/ext/animate/rotate";
+/*rotate、rotateIn、rotateInDownLeft、rotateInDownRight、rotateInUpLeft、rotateInUpRight、rotateOut、rotateOutDownLeft、rotateOutDownRight、rotateOutUpLeft、rotateOutUpRight*/
 @include animate-rotatePlane;
 .Eloading-progress.rotateplane{
 	width:$animateWidth;
-	div{
+	>div{
 		width:$animateWidth;
 		height:$animateHeight;
 		@include animation(rotatePlane $animateSpeed infinite ease-in-out);
@@ -85,12 +88,12 @@ $bounceInterval:-0.16s;
 }
 
 /* stretch */
-@import "../../../css/ext/animate/stretch";
+@import "../../../css/ext/animate/Eloading";
 @include animate-stretch;
 $stretchInterval:-1.1s;
 .Eloading-progress.stretch{
 	width:$animateWidth*3;
-	div{
+	>div{
 		width:$animateWidth/3;
 		height:$animateHeight*3;
 		margin:1px;
@@ -120,7 +123,7 @@ $stretchInterval:-1.1s;
 	width:$animateWidth*2;
 	height:$animateHeight*2;
 	@include animation(rotate $animateSpeed infinite ease-in-out);
-	div{
+	>div{
 		width:$animateWidth;
 		height:$animateHeight;
 		@include border-radius(50%);
@@ -141,7 +144,7 @@ $stretchInterval:-1.4s;
 	width:$animateWidth*2;
 	height:$animateHeight*2;
 	@include animation(rotate $animateSpeed infinite ease-in-out);
-	div{
+	>div{
 		width:20%;
 		height:20%;
 		position:absolute;
@@ -218,6 +221,182 @@ $stretchInterval:-1.4s;
 	}
 }
 
+
+@import "../../../css/ext/animate/Eloading";
+@include animate-win8;
+$win8Interval:0.24s;
+.Eloading-progress.win8{
+	width:$animateWidth*2;
+	>div{
+		width:$animateWidth*2;
+		height:$animateWidth*2;
+		@include opacity(0);
+		position: absolute;
+		left:0;
+		right:0;
+		@include transform(rotate(225deg));
+		@include animation(win8 5.5s infinite);
+		>div{
+			width:15%;
+			height:15%;
+			@include border-radius(50%);
+			position:absolute;
+			margin:-12.5%;
+		}
+	}
+	.Eloading-progress_elem2{
+		@include animation-delay($win8Interval);
+	}
+	.Eloading-progress_elem3{
+		@include animation-delay($win8Interval*2);
+	}
+	.Eloading-progress_elem4{
+		@include animation-delay($win8Interval*3);
+	}
+	.Eloading-progress_elem5{
+		@include animation-delay($win8Interval*4);
+	}
+}
+
+/* win8-linear */
+@import "../../../css/ext/animate/Eloading";
+@include animate-win8-linear;
+$win8-linearInterval:0.3s;
+.Eloading-progress.win8-linear{
+	width:$animateWidth*7.5;
+	height:$animateHeight/3;
+	>div{
+		width:100%;
+		height:100%;
+		position:absolute;
+		left:0;
+		@include opacity(0);
+		@include animation(win8-linear 3s infinite);
+		>div{
+			width:4%;
+			height:100%;
+			border-radius:50%;
+		}
+	}
+	.Eloading-progress_elem2{
+		@include animation-delay($win8-linearInterval);
+	}
+	.Eloading-progress_elem3{
+		@include animation-delay($win8-linearInterval * 2);
+	}
+	.Eloading-progress_elem4{
+		@include animation-delay($win8-linearInterval * 3);
+	}
+	.Eloading-progress_elem5{
+		@include animation-delay($win8-linearInterval * 4);
+	}
+}
+
+/* ios */
+@import "../../../css/ext/animate/Eloading";
+@include animate-ios;
+
+.Eloading-progress.ios{
+	width:$animateWidth;
+	height:$animateHeight;
+	>div{
+		width:10%;
+		height:26%;
+		position:absolute;
+		left:44.5%;
+		top:37%;
+		@include opacity(0);
+		@include border-radius(50px);
+		@include box-shadow(0 0 3px rgba(0,0,0,0.2));
+		@include animation(ios $animateSpeed linear infinite);
+	}
+	.Eloading-progress_elem1{
+		@include transform(rotate(0deg) translate(0, -142%));
+		@include animation-delay(0s);
+	}
+	.Eloading-progress_elem2{
+		@include transform(rotate(30deg) translate(0, -142%));
+		@include animation-delay(-0.9167s);
+	}
+	.Eloading-progress_elem3{
+		@include transform(rotate(60deg) translate(0, -142%));
+		@include animation-delay(-0.833s);
+	}
+	.Eloading-progress_elem4{
+		@include transform(rotate(90deg) translate(0, -142%));
+		@include animation-delay(-0.75s);
+	}
+	.Eloading-progress_elem5{
+		@include transform(rotate(120deg) translate(0, -142%));
+		@include animation-delay(-0.667s);
+	}
+	.Eloading-progress_elem6{
+		@include transform(rotate(150deg) translate(0, -142%));
+		@include animation-delay(-0.5833s);
+	}
+	.Eloading-progress_elem7{
+		@include transform(rotate(180deg) translate(0, -142%));
+		@include animation-delay(-0.5s);
+	}
+	.Eloading-progress_elem8{
+		@include transform(rotate(210deg) translate(0, -142%));
+		@include animation-delay(-0.41667s);
+	}
+	.Eloading-progress_elem9{
+		@include transform(rotate(240deg) translate(0, -142%));
+		@include animation-delay(-0.333s);
+	}
+	.Eloading-progress_elem10{
+		@include transform(rotate(270deg) translate(0, -142%));
+		@include animation-delay(-0.25s);
+	}
+	.Eloading-progress_elem11{
+		@include transform(rotate(300deg) translate(0, -142%));
+		@include animation-delay(-0.1667s);
+	}
+	.Eloading-progress_elem12{
+		@include transform(rotate(330deg) translate(0, -142%));
+		@include animation-delay(-0.0833s);
+	}
+}
+
+/* facebook */
+@import "../../../css/ext/animate/Eloading";
+@include animate-facebook;
+.Eloading-progress.facebook{
+	width:$animateWidth/3;
+	>div{
+		margin:auto;
+		width:$animateWidth/3;
+		height:$animateHeight+5;
+		@include opacity(10);
+		@include animation(facebook $animateSpeed linear infinite);
+		@include transform(scale(0.7));
+	}
+	.Eloading-progress_elem1{
+		@include animation-delay(0.39s);
+	}
+	.Eloading-progress_elem2{
+		@include animation-delay(0.52s);
+	}
+	.Eloading-progress_elem3{
+		@include animation-delay(0.65s);
+	}
+}
+
+/* rotation */
+@import "../../../css/ext/animate/rotate";
+@include animate-rotate;
+.Eloading-progress.rotation{
+	width:$animateWidth*3;
+		height:$animateHeight*3;
+		@include border-radius(100%);
+		border-width:6px;border-style:solid;
+		border-left-color:transparent!important;
+		border-right-color:transparent!important;
+		border-bottom-color:transparent!important;
+		@include animation(rotate $animateSpeed infinite linear);
+}
 
 /*time*/
 @import "../../../css/ext/animate/rotate";
