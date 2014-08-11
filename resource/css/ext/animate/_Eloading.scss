@@ -1,0 +1,109 @@
+@charset "UTF-8";
+//-----------------------------------------------------	
+// stretch scss
+//-----------------------------------------------------
+
+
+// stretch
+@mixin animate-stretch () {
+	@include keyframes(stretch){
+		0%, 40%, 100% {
+			@include transform(scaleY(0.4));
+		}
+		20% {
+			@include transform(scaleY(1));
+		}
+	}
+}
+
+
+
+//win8
+@mixin animate-win8 () {
+	@include keyframes(win8){
+		0% {
+			@include opacity(100);
+			@include transform(rotate(225deg));
+			@include animation-timing-function(ease-out);
+		} 
+		7% {
+			@include transform(rotate(345deg));
+			@include animation-timing-function(linear);
+		}
+		30% {
+			@include transform(rotate(455deg));
+			@include animation-timing-function(ease-in-out);
+		}
+		39% {
+			@include transform(rotate(690deg));
+			@include animation-timing-function(linear);
+		}
+		70% {
+			@include opacity(100);
+			@include transform(rotate(815deg));
+			@include animation-timing-function(ease-out);
+		}
+		75% {
+			@include transform(rotate(945deg));
+			@include animation-timing-function(ease-out);
+		}
+		76% {
+			@include opacity(0);
+			@include transform(rotate(945deg));
+		}
+		100% {
+			@include opacity(0);
+			@include transform(rotate(945deg));
+		} 
+	}
+}
+
+//win8-linear
+@mixin animate-win8-linear () {
+	@include keyframes(win8-linear){
+		0% {
+			@include transform(translateX(0));
+			@include animation-timing-function(ease-out);
+		} 
+		10% {
+			@include opacity(100);
+			@include transform(translateX(33.333%));
+			@include animation-timing-function(linear);
+		}
+		50% {
+			@include opacity(100);
+			@include transform(translateX(53.333%));
+			@include animation-timing-function(ease-in-out);
+		}
+		60% {
+			@include opacity(0);
+			@include transform(translateX(86.666%));
+		}
+	}
+}
+
+//ios 
+@mixin animate-ios () {
+	@include keyframes(ios){
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0.25;
+		}
+	}
+}
+
+//facebook
+@mixin animate-facebook () {
+	@include keyframes(facebook){
+		0% {
+			@include transform(scale(1.2));
+			@include opacity(100);
+		}
+		100% {
+			@include transform(scale(0.7));
+			@include opacity(10);
+		}
+	}
+}

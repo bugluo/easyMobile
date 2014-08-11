@@ -1,7 +1,7 @@
 /*
-waitMe - 1.02 [10.06.14]
+Eloading - 1.02 [10.06.14]
 Author: vadimsva
-Github: https://github.com/vadimsva/waitMe
+Github: https://github.com/vadimsva/Eloading
 user:bugLuo 6185763@qq.com
 */
 !function(factory) {
@@ -30,16 +30,16 @@ user:bugLuo 6185763@qq.com
 
     //定义一个E的方法
     E.loading = function(method){
-	    var elem = $('body'),
-		elemClass = 'waitMe',
-		waitMe_text,
+	    var elem,
+		elemClass = 'Eloading',
+		EloadingText,
 		effectObj,
 		effectElemCount,
 		createSubElem = false,
 		specificAttr = 'background-color',
 		addStyle = '',
 		effectElemHTML = '',
-		waitMeObj,
+		EloadingObj,
 		containerSize,
 		elemSize,
 		_options;
@@ -55,16 +55,19 @@ user:bugLuo 6185763@qq.com
 					sizeH: ''
 				};
 				_options = $.extend(_defaults, method);
-				
+				_options.sizeW = isNaN(_options.sizeW)?parseInt(_options.sizeW.replace('px','')):_options.sizeW;
+				_options.sizeH = isNaN(_options.sizeH)?parseInt(_options.sizeH.replace('px','')):_options.sizeH;
 				_init();
 				function _init() {
 					if($('.'+elemClass).length>0){
 						methods.hide();
 					}
-					if(method.container != ''){
-						elem == $(method.container);
+					if(method.container){
+						elem = $(method.container);
+					}else{
+						elem = $(document.body);
 					}
-					waitMeObj = $('<div class="' + elemClass + '"></div>');
+					EloadingObj = $('<div class="' + elemClass + '"></div>');
 					switch (_options.effect) {
 						case 'none':
 							effectElemCount = 0;
@@ -72,60 +75,66 @@ user:bugLuo 6185763@qq.com
 						case 'bounce':
 							effectElemCount = 3;
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH + 'px';
+							_options.sizeH = _options.sizeH * effectElemCount;
 						break;
 						case 'rotateplane':
 							effectElemCount = 1;
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 						break;
 						case 'stretch':
 							effectElemCount = 5;
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
+							_options.sizeW = _options.sizeW * 5 + 10;
 						break;
 						case 'orbit':
 							effectElemCount = 2;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
-							elemSize = '';
+							containerSize = '';
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
+							_options.sizeW = _options.sizeW * effectElemCount;
+							_options.sizeH = _options.sizeH * effectElemCount;
 						break;
 						case 'roundBounce':
 							effectElemCount = 12;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 							elemSize = '';
 						break;
 						case 'win8':
 							effectElemCount = 5;
 							createSubElem = true;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 						break;
-						case 'win8_linear':
+						case 'win8-linear':
 							effectElemCount = 5;
 							createSubElem = true;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW +'px' + ';height:' + _options.sizeH +'px';
 							elemSize = '';
 						break;
 						case 'ios':
 							effectElemCount = 12;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 							elemSize = '';
 						break;
 						case 'facebook':
 							effectElemCount = 3;
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
+							_options.sizeW = _options.sizeW * effectElemCount;
+							_options.sizeH = _options.sizeH * effectElemCount;
 						break;
 						case 'rotation':
 							effectElemCount = 1;
 							specificAttr = 'border-color';
 							containerSize = '';
-							elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							elemSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 						break;
 						case 'timer':
 							effectElemCount = 2;
 							addStyle = 'border-color:' + _options.color;
-							containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							containerSize = 'width:' + _options.sizeW+'px' + ';height:' + _options.sizeH+'px';
 							elemSize = '';
 						break;
 					}
@@ -139,34 +148,39 @@ user:bugLuo 6185763@qq.com
 					}
 					
 					if (effectElemCount > 0) {
-						effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '"></div>');
+						effectObj = $('<div class="' + elemClass + '-progress ' + _options.effect + '"></div>');
 						for (var i = 1; i <= effectElemCount; ++i) {
 							if (createSubElem) {
-								effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + elemSize + '"><div style="' + specificAttr +':' + _options.color +'"></div></div>';
+								effectElemHTML += '<div class="' + elemClass + '-progress_elem' + i + '" style="' + elemSize + '"><div style="' + specificAttr +':' + _options.color +'"></div></div>';
 							} else {
-								effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + specificAttr + ':' + _options.color +';' + elemSize + '"></div>';
+								effectElemHTML += '<div class="' + elemClass + '-progress_elem' + i + '" style="' + specificAttr + ':' + _options.color +';' + elemSize + '"></div>';
 							}
 						}
-						effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '" style="' + containerSize + addStyle + '">' + effectElemHTML + '</div>');
+						effectObj = $('<div class="' + elemClass + '-progress ' + _options.effect + '" style="' + containerSize + addStyle + '">' + effectElemHTML + '</div>')
+						if(_options.sizeW){
+							effectObj.css(width,_options.sizeW);
+						}
+						if(_options.sizeH){
+							effectObj.css(height,_options.sizeH);
+						}
 					}
 					
 					if (_options.text) {
-						waitMe_text = $('<div class="' + elemClass + '_text" style="color:' + _options.color + '">' + _options.text + '</div>');
+						EloadingText = $('<div class="' + elemClass + '-text" style="color:' + _options.color + '">' + _options.text + '</div>');
 					}
 					
 					if (elem.find('> .' + elemClass)) {
 						elem.find('> .' + elemClass).remove();
 					}
-					waitMeDivObj = $('<div class="' + elemClass + '_content"></div>');
-					waitMeDivObj.append(effectObj, waitMe_text);
-					waitMeObj.append(waitMeDivObj);
+					EloadingDivObj = $('<div class="' + elemClass + '-content"></div>');
+					EloadingDivObj.append(effectObj, EloadingText);
+					EloadingObj.append(EloadingDivObj);
+
 					if (elem[0].tagName == 'HTML') {
 						elem = $('body');
 					}
-					elem.addClass(elemClass + '_container').append(waitMeObj);
+					elem.addClass(elemClass + '-container').append(EloadingObj);
 					elem.find('> .' + elemClass).css({background: _options.bg});
-					elem.find('.' + elemClass + '_content').css({marginTop: - elem.find('.' + elemClass + '_content').outerHeight() / 2 + 'px'});
-
 				}
 				
 			},
@@ -174,12 +188,15 @@ user:bugLuo 6185763@qq.com
 				methods.init();
 			},
 			hide : function() {
-				waitMeClose();
+				EloadingClose();
 			}
 		};
 		
-		function waitMeClose() {
-			elem.removeClass(elemClass + '_container');
+		function EloadingClose() {
+			if(!elem){
+				elem = $(document.body);
+			}
+			elem.removeClass(elemClass + '-container');
 			elem.find('.' + elemClass).remove();
 		}
 
