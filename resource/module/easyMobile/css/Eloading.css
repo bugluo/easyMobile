@@ -1,4 +1,4 @@
-@charset "GBK";
+@charset "UTF-8";
 /*
 Eloading - 1.02 [10.06.14]
 first Author: vadimsva
@@ -9,9 +9,12 @@ user and recode:bugLuo 6185763@qq.com
   display: inline-block; }
 
 body.Eloading-container {
-  position: fixed;
   width: 100%;
   height: 100%; }
+  body.Eloading-container > .Eloading {
+    position: fixed;
+    top: 0;
+    left: 0; }
 
 .Eloading-container .Eloading {
   z-index: 1200;
