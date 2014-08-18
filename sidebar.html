@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>sidebar Demo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="HandheldFriendly" content="true">
+	<!-- 微软的老式浏览器 -->
+	<meta name="MobileOptimized" content="320">
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- QQ强制全屏 -->
+	<meta name="x5-fullscreen" content="true">
+	<!-- UC应用模式 -->
+	<meta name="browsermode" content="application">
+	<!-- QQ应用模式 -->
+	<meta name="x5-page-mode" content="app">
+	<!-- windows phone 点击无高光 -->
+	<meta name="msapplication-tap-highlight" content="no">
+
+	
+	<!-- 颜色 <meta name="apple-mobile-web-app-status-bar-style" content="black" default（白色），可以定为black（黑色）和black-translucent（灰色半透明） /> -->
+	<link rel="alternate icon" href="resource/img/favicon.ico">
+	<!-- 全屏 <meta name="apple-mobile-web-app-capable" content="yes" /> 如果apple-mobile-web-app-capable设置为yes了，那么在iPhone,iPad,iTouch的safari上可以使用添加到主屏按钮将网站添加到主屏幕上。而通过设置相应apple-touch-icon标签，则添加到主屏上的图标就会使用我们指定的图片。 -->
+<!-- 	<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png"> -->
+	<!-- <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/startup.png"> 启动画面，用mediaquery加载不同画面  -->
+	<link rel="stylesheet" href="resource/css/base.combo.css"/>
+	<style type="text/css">
+		body{background: #f1f1f1;}
+		#header{height:48px;background: #fcfcfc}
+		#header h1{text-align: center;}
+		#navBtn{position: absolute;left:8px;top:8px;background: url(resource/img/favicon.ico);display: block;width:32px;height:32px;}
+
+	</style>
+</head>
+<body>
+	<header id="header" class="">
+		<a href="javascript:;" id="navBtn"></a>
+		<h1>easyMobile</h1>
+	</header><!-- /header -->
+	<section>
+
+	</section>
+	<aside id="">
+		
+	</aside>
+</body>
+<!-- 为什么使用jquery：因为zepto在低端手机有一些坑，jquery2.0大版本在window mobile6.5也有一些坑。如果不想兼容，可以随时换zepto。使用require，因为够简单 -->
+<script type="text/javascript" src="resource/module/jquery/jquery_require.js"></script>
+<script type="text/javascript">
+require.config({'baseUrl' : 'resource/','urlArgs' : "r=" + (new Date()).getTime()});
+</script>
+<script type="text/javascript" src="resource/js/common.js"></script>
+<script type="text/javascript" src="resource/js/sidebar.js"></script>
+</html>

@@ -19,28 +19,31 @@
     }
 }(function(EExports){
 
-    //E的全局定义 koExports是undefined 对应着上面的[3] 这种情况
+    //E的全局定义 EExports是undefined 对应着上面的[3] 这种情况
     var E = typeof EExports !== 'undefined' ? EExports : {};
-
     //定义一个E的方法
-    E.test = function(s){
-        alert('这是一个模板页，用于展示目录结构，基础html，css reset，easyMobile组织结构');
+    E.Sidebar = Sidebar;
+    function Sidebar(method){
+        function _Sidebar(method){
+            if (this[method]) {
+                return this[method].apply( this, Array.prototype.slice.call(arguments, 0));
+            } else if (typeof method === 'object' || ! method) {
+                return this.init.apply(this, arguments);
+            }
+        }
+        _Sidebar.prototype.init = function(){
+            alert('init');
+        }
+        _Sidebar.prototype.toggle = function(){
+            alert('toggle');
+        }
+        _Sidebar.prototype.show = function(){
+            alert('show');
+        }
+        _Sidebar.prototype.hide = function(){
+            alert('hide');
+        }
+        return new _Sidebar();
     }
-
-    E.prefix = (function () {
-        var styles = window.getComputedStyle(document.documentElement, ''),
-        pre = (Array.prototype.slice
-               .call(styles)
-               .join('') 
-               .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
-              )[1],
-              dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + pre + ')', 'i'))[1];
-              return {
-                  dom: dom,
-                  lowercase: pre,
-                  css: '-' + pre + '-',
-                  js: pre[0].toUpperCase() + pre.substr(1)
-              };
-    })();
     return E;
 });
