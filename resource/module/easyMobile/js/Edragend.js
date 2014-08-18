@@ -2,7 +2,7 @@
 * @license in-viewport v0.4.1 | github.com/vvo/in-viewport#license
 * @user bugluo 6185763@qq.com
 */
-!function(factory,$) {
+!function(factory) {
     //factory是一个函数，下面的EExports就是他的参数
     // Support three module loading scenarios
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
@@ -19,9 +19,9 @@
         define(['exports'], factory);
     } else {
         // [3] No module loader (plain <script> tag) - put directly in global namespace
-      window['E']?factory(window['E'],$):factory(window['E']={},$);
+      window['E']?factory(window['E']):factory(window['E']={});
     }
-}(function(EExports,$){
+}(function(EExports){
  var E = typeof EExports !== 'undefined' ? EExports : {};
   E.dragend= function(option){
     return new dragend(option);
@@ -184,5 +184,5 @@
                 }
               }
         }
-
-  },window.$)
+        return E;
+  })
