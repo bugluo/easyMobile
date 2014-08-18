@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title></title>
+	<style>
+	*{margin: 0;padding: 0;}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="item"style="background-color: black"></div>
+	<div class="item"style="background-color: red"></div>
+	<div class="item"style="background-color: black"></div>
+	<div class="item"style="background-color: yellow"></div>
+</div>
+</body>
+<script type="text/javascript" src="resource/module/jquery/jquery_require.js"></script>
+<script type="text/javascript">
+require.config({'baseUrl' : 'resource/','urlArgs' : "r=" + (new Date()).getTime()});
+</script>
+<script type="text/javascript" src="resource/js/common.js"></script>
+<script type="text/javascript" src="resource/js/dragend.js"></script>
+</html>
