@@ -8,24 +8,23 @@ require([
 		text : '我是一个loading，在等待爱情',
 		bg : 'rgba(255,255,255,0.7)',
 		color : '#000',
-		// sizeW : '60px',
-		// sizeH : '60px',
+		sizeW : '60px',
+		sizeH : '60px',
 		container:'body'
 	});
-	// setTimeout(function(){
-	// 	E.loading('hide');
-	// },1500);
-	// setInterval(function(){
-	// 	console.log(effects[i]);
-	// 	i<=effects.length?i++:i=0;
-	// 	E.loading({
-	// 		effect : effects[i],
-	// 		text : '我是一个loading，在等待爱情',
-	// 		bg : 'rgba(255,255,255,0.7)',
-	// 		color : '#000',
-	// 		container:'body'
-	// 	});
-	// },2000)
+	setTimeout(function(){
+		E.loading('hide');
+	},1500);
+	setInterval(function(){
+		i<=effects.length?i++:i=0;
+		E.loading({
+			effect : effects[i],
+			text : '我是一个loading，在等待爱情',
+			bg : 'rgba(255,255,255,0.7)',
+			color : '#000',
+			container:'body'
+		});
+	},2000)
 	
 });
 // (function() {

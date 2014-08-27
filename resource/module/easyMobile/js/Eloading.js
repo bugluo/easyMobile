@@ -158,10 +158,10 @@ user:bugLuo 6185763@qq.com
 						}
 						effectObj = $('<div class="' + elemClass + '-progress ' + _options.effect + '" style="' + containerSize + addStyle + '">' + effectElemHTML + '</div>')
 						if(_options.sizeW){
-							effectObj.css(width,_options.sizeW);
+							effectObj.css('width',_options.sizeW);
 						}
 						if(_options.sizeH){
-							effectObj.css(height,_options.sizeH);
+							effectObj.css('height',_options.sizeH);
 						}
 					}
 					

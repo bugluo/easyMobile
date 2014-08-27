@@ -39,24 +39,219 @@
 	<!-- <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="/startup.png"> 启动画面，用mediaquery加载不同画面  -->
 	<link rel="stylesheet" href="resource/css/base.combo.css"/>
 	<style type="text/css">
-		body{background: #f1f1f1;}
-		#header{height:48px;background: #fcfcfc}
-		#header h1{text-align: center;}
-		#navBtn{position: absolute;left:8px;top:8px;background: url(resource/img/favicon.ico);display: block;width:32px;height:32px;}
-
+		html,body,.wrap{height:100%;}
+		.wrap{
+			background: #f3efe0;
+		}
 	</style>
 </head>
 <body>
-	<header id="header" class="">
-		<a href="javascript:;" id="navBtn"></a>
-		<h1>easyMobile</h1>
-	</header><!-- /header -->
-	<section>
-
-	</section>
-	<aside id="">
+	<div id="Esidebar-container" class="Esidebar-container">
+		<!-- 	
+			example menus 
+			these menus will be on top of the push wrapper
+		-->
+		<nav class="Esidebar-menu Esidebar-effect-1" id="menu-1">
+			<h2 class="icon icon-lab">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
 		
-	</aside>
+		<nav class="Esidebar-menu Esidebar-effect-2" id="menu-2">
+			<h2 class="icon icon-stack">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
+
+		<nav class="Esidebar-menu Esidebar-effect-4" id="menu-4">
+			<h2 class="icon icon-lab">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
+
+		<nav class="Esidebar-menu Esidebar-effect-5" id="menu-5">
+			<h2 class="icon icon-stack">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
+		
+		<nav class="Esidebar-menu Esidebar-effect-9" id="menu-9">
+			<h2 class="icon icon-lab">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
+		
+		<nav class="Esidebar-menu Esidebar-effect-10" id="menu-10">
+			<h2 class="icon icon-stack">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
+		
+		<nav class="Esidebar-menu Esidebar-effect-11" id="menu-11">
+			<h2 class="icon icon-lab">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
+
+		<nav class="Esidebar-menu Esidebar-effect-12" id="menu-12">
+			<h2 class="icon icon-stack">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
+
+		<nav class="Esidebar-menu Esidebar-effect-13" id="menu-13">
+			<h2 class="icon icon-stack">Sidebar</h2>
+			<ul>
+				<li><a class="icon icon-data" href="#">Data Management</a></li>
+				<li><a class="icon icon-location" href="#">Location</a></li>
+				<li><a class="icon icon-study" href="#">Study</a></li>
+				<li><a class="icon icon-photo" href="#">Collections</a></li>
+				<li><a class="icon icon-wallet" href="#">Credits</a></li>
+			</ul>
+		</nav>
+
+		<!-- content push wrapper -->
+		<div class="Esidebar-pusher">
+			<!-- 	
+				example menus 
+				these menus will be under the push wrapper
+			-->
+			<nav class="Esidebar-menu Esidebar-effect-3" id="menu-3">
+				<h2 class="icon icon-lab">Sidebar</h2>
+				<ul>
+					<li><a class="icon icon-data" href="#">Data Management</a></li>
+					<li><a class="icon icon-location" href="#">Location</a></li>
+					<li><a class="icon icon-study" href="#">Study</a></li>
+					<li><a class="icon icon-photo" href="#">Collections</a></li>
+					<li><a class="icon icon-wallet" href="#">Credits</a></li>
+				</ul>
+			</nav>
+
+			<nav class="Esidebar-menu Esidebar-effect-6" id="menu-6">
+				<h2 class="icon icon-stack">Sidebar</h2>
+				<ul>
+					<li><a class="icon icon-data" href="#">Data Management</a></li>
+					<li><a class="icon icon-location" href="#">Location</a></li>
+					<li><a class="icon icon-study" href="#">Study</a></li>
+					<li><a class="icon icon-photo" href="#">Collections</a></li>
+					<li><a class="icon icon-wallet" href="#">Credits</a></li>
+				</ul>
+			</nav>
+
+			<nav class="Esidebar-menu Esidebar-effect-7" id="menu-7">
+				<h2 class="icon icon-lab">Sidebar</h2>
+				<ul>
+					<li><a class="icon icon-data" href="#">Data Management</a></li>
+					<li><a class="icon icon-location" href="#">Location</a></li>
+					<li><a class="icon icon-study" href="#">Study</a></li>
+					<li><a class="icon icon-photo" href="#">Collections</a></li>
+					<li><a class="icon icon-wallet" href="#">Credits</a></li>
+				</ul>
+			</nav>
+
+			<nav class="Esidebar-menu Esidebar-effect-8" id="menu-8">
+				<h2 class="icon icon-stack">Sidebar</h2>
+				<ul>
+					<li><a class="icon icon-data" href="#">Data Management</a></li>
+					<li><a class="icon icon-location" href="#">Location</a></li>
+					<li><a class="icon icon-study" href="#">Study</a></li>
+					<li><a class="icon icon-photo" href="#">Collections</a></li>
+					<li><a class="icon icon-wallet" href="#">Credits</a></li>
+				</ul>
+			</nav>
+
+			<nav class="Esidebar-menu Esidebar-effect-14" id="menu-14">
+				<h2 class="icon icon-stack">Sidebar</h2>
+				<ul>
+					<li><a class="icon icon-data" href="#">Data Management</a></li>
+					<li><a class="icon icon-location" href="#">Location</a></li>
+					<li><a class="icon icon-study" href="#">Study</a></li>
+					<li><a class="icon icon-photo" href="#">Collections</a></li>
+					<li><a class="icon icon-wallet" href="#">Credits</a></li>
+				</ul>
+			</nav>
+
+			<div class="Esidebar-content"><!-- this is the wrapper for the content -->
+				<div class="Esidebar-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+					<!-- Top Navigation -->
+					<div class="codrops-top clearfix">
+						<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/3DShadingWithBoxShadows/"><span>Previous Demo</span></a>
+						<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16292"><span>Back to the Codrops Article</span></a></span>
+					</div>
+					<header class="codrops-header">
+						<h1>Sidebar Transitions <span>Transition effects for off-canvas views</span></h1>
+					</header>
+					<div class="main clearfix">
+						<div id="Esidebar-trigger-effects" class="column">
+							<button data-effect="Esidebar-effect-1">Slide in on top</button>
+							<button data-effect="Esidebar-effect-2">Reveal</button>
+							<button data-effect="Esidebar-effect-3">Push</button>
+							<button data-effect="Esidebar-effect-4">Slide along</button>
+							<button data-effect="Esidebar-effect-5">Reverse slide out</button>
+							<button data-effect="Esidebar-effect-6">Rotate pusher</button>
+							<button data-effect="Esidebar-effect-7">3D rotate in</button>
+							<button data-effect="Esidebar-effect-8">3D rotate out</button>
+							<button data-effect="Esidebar-effect-9">Scale down pusher</button>
+							<button data-effect="Esidebar-effect-10">Scale Up</button>
+							<button data-effect="Esidebar-effect-11">Scale &amp; rotate pusher</button>
+							<button data-effect="Esidebar-effect-12">Open door</button>
+							<button data-effect="Esidebar-effect-13">Fall down</button>
+							<button data-effect="Esidebar-effect-14">Delayed 3D Rotate</button>
+						</div>
+						<div class="column">
+							<p>Sidebar menus or off-canvas navigations can be revealed in many creative ways.</p>
+							<p>Here is some inspiration for showing them in style using CSS transitions.</p>
+						</div>
+						<div class="info">
+							<p>If you enjoyed this demo you might also like:</p>
+							<p><a href="http://tympanus.net/Development/HeaderEffects/">On Scroll Header Effects</a></p>
+							<p><a href="http://tympanus.net/Development/PageTransitions/">A Collection of Page Transitions</a></p>
+						</div>
+					</div><!-- /main -->
+				</div><!-- /Esidebar-content-inner -->
+			</div><!-- /Esidebar-content -->
+		</div><!-- /Esidebar-pusher -->
+	</div><!-- /Esidebar-container -->
 </body>
 <!-- 为什么使用jquery：因为zepto在低端手机有一些坑，jquery2.0大版本在window mobile6.5也有一些坑。如果不想兼容，可以随时换zepto。使用require，因为够简单 -->
 <script type="text/javascript" src="resource/module/jquery/jquery_require.js"></script>
